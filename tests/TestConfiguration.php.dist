@@ -43,3 +43,8 @@ defined('TESTS_ZEND_OB_ENABLED') || define('TESTS_ZEND_OB_ENABLED', false);
  */
 defined('TESTS_GENERATE_REPORT') || define('TESTS_GENERATE_REPORT', false);
 defined('TESTS_GENERATE_REPORT_TARGET') || define('TESTS_GENERATE_REPORT_TARGET', '/path/to/target');
+
+/**
+ * Zend\Service\Delicious tests
+ */
+defined('TESTS_ZEND_SERVICE_DELICIOUS_ENABLED') || define('TESTS_ZEND_SERVICE_DELICIOUS_ENABLED', false);
