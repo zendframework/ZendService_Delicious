@@ -8,11 +8,11 @@
  * @package   Zend_Service
  */
 
-namespace ZendTest\Service\Delicious;
+namespace ZendServiceTest\Delicious;
 
-use Zend\Service\Delicious\Delicious as DeliciousClient;
-use Zend\Service\Delicious;
-use Zend\Service\Delicious\Post;
+use ZendService\Delicious\Delicious as DeliciousClient;
+use ZendService\Delicious;
+use ZendService\Delicious\Post;
 
 /**
  * @category   Zend_Service
@@ -65,7 +65,7 @@ class PostTest extends \PHPUnit_Framework_TestCase
     {
         try {
             $post = new Post($this->_delicious, array('url' => 'anything'));
-            $this->fail('Expected \Zend\Service\Delicious\Exception not thrown');
+            $this->fail('Expected \ZendService\Delicious\Exception not thrown');
         } catch (Delicious\Exception $e) {
             $this->assertContains("'url' and 'title'", $e->getMessage());
         }
@@ -80,7 +80,7 @@ class PostTest extends \PHPUnit_Framework_TestCase
     {
         try {
             $post = new Post($this->_delicious, array('title' => 'anything'));
-            $this->fail('Expected \Zend\Service\Delicious\Exception not thrown');
+            $this->fail('Expected \ZendService\Delicious\Exception not thrown');
         } catch (Delicious\Exception $e) {
             $this->assertContains("'url' and 'title'", $e->getMessage());
         }
@@ -99,7 +99,7 @@ class PostTest extends \PHPUnit_Framework_TestCase
             'url'   => 'anything',
             'date'  => 'invalid'
             );
-        $this->setExpectedException('Zend\Service\Delicious\Exception',
+        $this->setExpectedException('ZendService\Delicious\Exception',
                                     'instance of DateTime');
         new Post($this->_delicious, $values);
     }

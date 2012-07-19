@@ -8,10 +8,10 @@
  * @package   Zend_Service
  */
 
-namespace ZendTest\Service\Delicious\PrivateData;
+namespace ZendServiceTest\Delicious\PrivateData;
 
 use DateTime;
-use Zend\Service\Delicious;
+use ZendService\Delicious;
 use Zend\Http;
 use Zend\Rest\Client as RestClient;
 
@@ -37,7 +37,7 @@ class PrivateDataTest extends \PHPUnit_Framework_TestCase
     private static $TEST_POST_SHARED = false;
 
     /**
-     * @var \Zend\Service\Delicious
+     * @var \ZendService\Delicious
      */
     protected $delicious;
 
@@ -48,11 +48,11 @@ class PrivateDataTest extends \PHPUnit_Framework_TestCase
     public function setUp()
     {
         if (!constant('TESTS_ZEND_SERVICE_DELICIOUS_ENABLED')) {
-            $this->markTestSkipped('\Zend\Service\Delicious online tests are not enabled');
+            $this->markTestSkipped('\ZendService\Delicious online tests are not enabled');
         }
         $httpClient = new Http\Client();
         $httpClient->setOptions(array(
-                'useragent' => 'Zend\Service\Delicious - Unit tests/0.1',
+                'useragent' => 'ZendService\Delicious - Unit tests/0.1',
                 'keepalive' => true
         ));
 
@@ -188,7 +188,7 @@ class PrivateDataTest extends \PHPUnit_Framework_TestCase
     public function testGetAllPosts()
     {
         $posts = $this->delicious->getAllPosts('zfSite');
-        $this->assertInstanceOf('Zend\Service\Delicious\PostList', $posts);
+        $this->assertInstanceOf('ZendService\Delicious\PostList', $posts);
 
         foreach ($posts as $post) {
             $this->assertContains('zfSite', $post->getTags());
@@ -203,7 +203,7 @@ class PrivateDataTest extends \PHPUnit_Framework_TestCase
     public function testGetRecentPosts()
     {
         $posts = $this->delicious->getRecentPosts('zfSite', 10);
-        $this->assertInstanceOf('Zend\Service\Delicious\PostList', $posts);
+        $this->assertInstanceOf('ZendService\Delicious\PostList', $posts);
         $this->assertTrue(count($posts) <= 10);
 
         foreach ($posts as $post) {
@@ -219,7 +219,7 @@ class PrivateDataTest extends \PHPUnit_Framework_TestCase
     public function testGetPosts()
     {
         $posts = $this->delicious->getPosts('zfSite', new DateTime(), 'help');
-        $this->assertInstanceOf('Zend\Service\Delicious\PostList', $posts);
+        $this->assertInstanceOf('ZendService\Delicious\PostList', $posts);
         $this->assertTrue(count($posts) <= 10);
 
         foreach ($posts as $post) {

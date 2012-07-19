@@ -8,7 +8,7 @@
  * @package   Zend_Service
  */
 
-namespace Zend\Service\Delicious;
+namespace ZendService\Delicious;
 
 /**
  * Represents a publicly available post

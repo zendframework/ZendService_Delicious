@@ -8,9 +8,9 @@
  * @package   Zend_Service
  */
 
-namespace ZendTest\Service\Delicious;
+namespace ZendServiceTest\Delicious;
 
-use Zend\Service\Delicious;
+use ZendService\Delicious;
 
 /**
  * @category   Zend_Service

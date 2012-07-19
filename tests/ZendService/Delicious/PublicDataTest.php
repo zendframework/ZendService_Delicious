@@ -8,9 +8,9 @@
  * @package   Zend_Service
  */
 
-namespace ZendTest\Service\Delicious;
+namespace ZendServiceTest\Delicious;
 
-use Zend\Service\Delicious\Delicious as DeliciousClient;
+use ZendService\Delicious\Delicious as DeliciousClient;
 use Zend\Http;
 use Zend\Rest\Client as RestClient;
 
@@ -38,11 +38,11 @@ class PublicDataTest extends \PHPUnit_Framework_TestCase
     public function setUp()
     {
         if (!constant('TESTS_ZEND_SERVICE_DELICIOUS_ENABLED')) {
-            $this->markTestSkipped('\Zend\Service\Delicious online tests are not enabled');
+            $this->markTestSkipped('\ZendService\Delicious online tests are not enabled');
         }
         $httpClient = new Http\Client();
         $httpClient->setOptions(array(
-                'useragent' => '\Zend\Service\Delicious - Unit tests/0.1',
+                'useragent' => '\ZendService\Delicious - Unit tests/0.1',
                 'keepalive' => true
         ));
 
@@ -112,12 +112,12 @@ class PublicDataTest extends \PHPUnit_Framework_TestCase
     {
         $posts = $this->delicious->getUserPosts(self::TEST_UNAME, 10);
 
-        $this->assertInstanceOf('Zend\Service\Delicious\PostList', $posts);
+        $this->assertInstanceOf('ZendService\Delicious\PostList', $posts);
 
-        // check if all objects in returned \Zend\Service\Delicious\PostList
-        // are instances of \Zend\Service\Delicious\SimplePost
+        // check if all objects in returned \ZendService\Delicious\PostList
+        // are instances of \ZendService\Delicious\SimplePost
         foreach ($posts as $post) {
-            $this->assertInstanceOf('Zend\Service\Delicious\SimplePost', $post);
+            $this->assertInstanceOf('ZendService\Delicious\SimplePost', $post);
         }
 
         // test filtering of Zend_Service_Delicious_PostList by tag name

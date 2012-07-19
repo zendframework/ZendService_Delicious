@@ -8,7 +8,7 @@
  * @package   Zend_Service
  */
 
-namespace Zend\Service\Delicious;
+namespace ZendService\Delicious;
 
 /**
  * List of posts retrived from the del.icio.us web service
